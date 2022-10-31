@@ -13,6 +13,8 @@ def result():
       posturl = request.form["text"]
       if not(posturl):
          return render_template("index.html", error="Error: no url provided.")
+      if not(posturl.startswith("https://twitter.com/")):
+         return render_template("index.html", error="Error: invalid twitter url.")
       result = gettxt(posturl)
       return render_template("index.html", result=result)
 

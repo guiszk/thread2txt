@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <form action="http://localhost:5000/results" method="post">
+    <form action="/results" method="post">
         <input type="text" name="text" placeholder="Enter url here">
         <input type="submit" value="Submit"> 
     </form>
@@ -18,7 +18,7 @@
         {% for i in result %}
             <p>{{ i }}</p>
         {% endfor %}
-        <form action="http://localhost:5000/download" method="post">
+        <form action="/download" method="post">
             <input type="submit" value="Download .txt">
         </form>
     {% else %}

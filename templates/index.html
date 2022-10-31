@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>thread2txt</title>
+</head>
+
+<body>
+    <form action="http://localhost:5000/results" method="post">
+        <input type="text" name="text" placeholder="Enter url here">
+        <input type="submit" value="Submit"> 
+    </form>
+    {% if error %}
+        <p style="background-color: red;">{{ error }}</p>
+    {% endif %}
+    {% if result %}
+        {% for i in result %}
+            <p>{{ i }}</p>
+        {% endfor %}
+        <form action="http://localhost:5000/download" method="post">
+            <input type="submit" value="Download .txt">
+        </form>
+    {% else %}
+        <p>Enter a twitter url to get the thread as a txt file.</p>
+    {% endif %}
+    <br>
+    <a href="https://github.com/guiszk">github</a>
+</body>
+
+</html>

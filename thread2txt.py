@@ -7,9 +7,13 @@ def gettxt(url):
     soup = bs(page.text, 'html.parser')
 
     alltxt = []
+    errtxt = soup.findAll('div', {'class': 'error-panel'})
 
     for i in soup.findAll('div', {'class':'tweet-content'}):
         alltxt.append(i.text)
+    if(errtxt):
+        for i in errtxt:
+            alltxt.append(i.text)
 
     with open("results.txt", 'w') as f:
         for i in alltxt:
